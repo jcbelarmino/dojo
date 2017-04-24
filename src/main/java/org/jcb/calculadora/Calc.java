@@ -1,4 +1,4 @@
-package org.jcb.Calculadora;
+package org.jcb.calculadora;
 
 import java.util.Scanner;
 
