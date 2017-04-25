@@ -16,7 +16,7 @@ public class Imovel {
 		private String endereço;
 		
 		private Double preco;
-		
+	
 		public Long getId() {
 			return id;
 		}
