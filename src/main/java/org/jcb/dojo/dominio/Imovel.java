@@ -1,5 +1,6 @@
 package org.jcb.dojo.dominio;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,12 +12,16 @@ public class Imovel {
 		@GeneratedValue
 		private Long id;
 
+		@Column(nullable=false, precision=3, scale=20)
 		private Double lat;
 
+		@Column(nullable=false, precision=3, scale=20)
 		private Double longi;
 		
+		@Column(nullable=false, length=512)
 		private String endereço;
 		
+		@Column(nullable=false, precision=5, scale=2)
 		private Double preco;
 	
 		public Long getId() {
