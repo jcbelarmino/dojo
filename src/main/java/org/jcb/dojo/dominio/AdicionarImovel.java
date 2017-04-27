@@ -1,7 +1,5 @@
 package org.jcb.dojo.dominio;
 
-import java.util.Calendar;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,7 +7,7 @@ import javax.persistence.Persistence;
 public class AdicionarImovel {
 
 	public static void main(String[] args) {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("K21_mapeamento_pu");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("dojoPU");
 		EntityManager manager = factory.createEntityManager();
 		manager.getTransaction().begin();
 		
