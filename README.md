@@ -15,6 +15,7 @@ Para inciar o dojo da Aula2
 
 1. Criar tabela no banco
 2. Alterar o mapeamento com `@Column`
+>git checkout -b JPA-entidades
 
 >git checkout -b JPA-mapeamento
 
