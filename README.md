@@ -25,6 +25,9 @@ Para inciar o dojo da Aula2
 5. Fazer programa que consulta vários imóveis
 6. Criar um DAO
 
+>git checkout -b JPA-entidades
+
+
 >git checkout -b JPA-DAO
 
 1. implementar um relacionamento ``@OneToOne`` entre Imovel e Endereço 
