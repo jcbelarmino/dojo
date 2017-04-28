@@ -30,3 +30,5 @@ Para inciar o dojo da Aula2
 1. implementar um relacionamento ``@OneToOne`` entre Imovel e Endereço 
 2. implementar um relacionamento ``@OneToMany`` entre Imovel e Cliente
 3. implementar um relacionamento ``@ManyToOne`` 
+
+>git checkout -b JPA-relacionamentos
