@@ -1,4 +1,4 @@
-package br.org.jcb.dao;
+package org.jcb.dao;
 
 import java.io.Serializable;
 import java.util.List;
@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 
 import org.jcb.dojo.dominio.Imovel;
 
-public class ImovelDAO {
+public class ImovelDAO extends DAOEntityManagerGenerico<Imovel, Long>{
 	
 	EntityManager  em;
 
