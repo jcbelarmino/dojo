@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Imovel {
@@ -18,12 +19,12 @@ public class Imovel {
 		@Column(nullable=false, precision=3, scale=20)
 		private Double longi;
 		
-		@Column(nullable=false, length=512)
-		private String endereço;
-		
 		@Column(nullable=false, precision=5, scale=2)
 		private Double preco;
 	
+		@OneToOne
+		private Endereco endereco;
+		
 		public Long getId() {
 			return id;
 		}
@@ -48,14 +49,6 @@ public class Imovel {
 			this.longi = longi;
 		}
 
-		public String getEndereço() {
-			return endereço;
-		}
-
-		public void setEndereço(String endereço) {
-			this.endereço = endereço;
-		}
-
 		public Double getPreco() {
 			return preco;
 		}
@@ -63,4 +56,19 @@ public class Imovel {
 		public void setPreco(Double preco) {
 			this.preco = preco;
 		}
+
+		public Endereco getEndereco() {
+			return endereco;
+		}
+
+		public void setEndereco(Endereco endereco) {
+			this.endereco = endereco;
+		}
+
+		@Override
+		public String toString() {
+			return "Imovel [id=" + id + ", lat=" + lat + ", longi=" + longi + ", preco=" + preco + ", endereco="
+					+ endereco + "]";
+		}
+		
 }

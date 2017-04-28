@@ -12,11 +12,15 @@ public class AdicionarImovel {
 		manager.getTransaction().begin();
 		
 		Imovel imovel = new Imovel();
-		imovel.setEndereço("Unb");
+		Endereco e = new Endereco();
+		e.setRua("Unb");
+		e.setBairro("Aguas Claras");
+		e.setComplemento("apt 101");
+		imovel.setEndereco(e);
 		imovel.setLat(-15.7728457);
 		imovel.setLongi(-47.8659963);
 		imovel.setPreco(3000.00);
-		
+		manager.persist(e);
 		manager.persist(imovel);
 		manager.getTransaction().commit();
 

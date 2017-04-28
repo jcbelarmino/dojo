@@ -8,5 +8,6 @@ public class CriaBase {
 	public static void main(String[] args) {
 		EntityManagerFactory factory = Persistence.createEntityManagerFactory("dojoPU");
 		factory.close();
+		
 	}
 }
