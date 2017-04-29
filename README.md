@@ -47,7 +47,7 @@ Para inciar o dojo da Aula2
 4. criar uma ``NamedQuery`` que retorna dados mapeados.
 5. Criar uma ``NamedQuery`` com paginação.
 6. criar um `update` em lote.
-7. Criar um query nativa.
+7. Criar uma query nativa.
 
 
 

@@ -5,10 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
-@Entity(name="TB_IMOVEL")
+@NamedQueries({
+	@NamedQuery(name="Imovel.recuperarTodos", query= "select i from Imovel i"),
+	@NamedQuery(name="Imovel.recuperarPorMaiorValor", query = "select i from Imovel i where i.preco < :preco"),
+	@NamedQuery(name="Imovel.recuperarUnico", query = "select i from Imovel i where i.id = 4"),
+	@NamedQuery(name="Imovel.recuperarRuaLatLongi", query= "select i.lat, i.longi, i.endereco.bairro from Imovel i"),
+	@NamedQuery(name="Imovel.recuperarRuaLatLongiDTO", query= "select new org.jcb.dojo.dominio.LatLongiBairroDTO(i.lat, i.longi, i.endereco.bairro) from Imovel i")
+})
+@Entity
+@Table(name="TBL_IMOVEL")
 public class Imovel {
 
 		@Id
