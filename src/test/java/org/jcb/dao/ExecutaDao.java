@@ -9,7 +9,7 @@ import javax.persistence.Persistence;
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
 
-public class TestDao {
+public class ExecutaDao {
 
 	public static void main(String[] args) {
 		

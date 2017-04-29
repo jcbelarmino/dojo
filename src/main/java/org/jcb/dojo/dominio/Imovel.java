@@ -3,14 +3,17 @@ package org.jcb.dojo.dominio;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 
-@Entity
+@Entity(name="TB_IMOVEL")
 public class Imovel {
 
 		@Id
-		@GeneratedValue
+		@GeneratedValue(generator = "imovel_seq_gen")
+		@SequenceGenerator(name = "imovel_seq_gen", sequenceName = "imovel_id_seq")
 		private Long id;
 
 		@Column(nullable=false, precision=3, scale=20)
