@@ -36,6 +36,9 @@ Para inciar o dojo da Aula2
 3. implementar um relacionamento ``@ManyToOne`` 
 
 >git checkout -b JPA-relacionamento
+
 1. criar um DAO generico
 
 >git checkout -b JPA-DAO-GENERICO
+
+
