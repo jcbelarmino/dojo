@@ -41,4 +41,12 @@ Para inciar o dojo da Aula2
 
 >git checkout -b JPA-DAO-GENERICO
 
+1. Criar uma `NamedQuery` que recebe parâmetro e retorna uma lista.
+2. Criar uma ``NamedQuery``que recebe parâmetro e retorna um único elemento.
+3. Criar uma ``NamedQuery`` que retorna dados não mapeados.
+4. criar uma ``NamedQuery`` que retorna dados mapeados.
+5. Criar uma ``NamedQuery`` com paginação.
+6. criar um `update` em lote.
+7. Criar um query nativa.
 
+>git checkout -b JPA-JPQL
