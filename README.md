@@ -49,4 +49,5 @@ Para inciar o dojo da Aula2
 6. criar um `update` em lote.
 7. Criar um query nativa.
 
+Codigo de exemplo em:
 >git checkout -b JPA-JPQL
