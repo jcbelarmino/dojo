@@ -1,4 +1,4 @@
-package org.jcb.dao;
+package org.jcb.dojo.dao;
 
 import java.io.Serializable;
 import java.util.List;

@@ -49,5 +49,20 @@ Para inciar o dojo da Aula2
 6. criar um `update` em lote.
 7. Criar uma query nativa.
 
+Codigo de exemplo em:
+>git checkout -b JPA-JPQL
 
+Para o módulo EJB:
 
+Implantar o projeto dojo-ejb  
+
+1. Testar as chamadas remotas.
+
+Voltar para o o projeto dojo
+
+>git checkout -b JPA-EJB
+
+1. testar o `HelloServlet`
+2. Configurar `Datasource`
+3. Trocar o DAO por EJB.
+4. Criar tela básica de cadastro de Imóveis

@@ -1,4 +1,4 @@
-package org.jcb.dao;
+package org.jcb.dojo.dao;
 
 import java.util.List;
 
@@ -6,6 +6,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.jcb.dojo.dao.DAOEntityManagerGenerico;
+import org.jcb.dojo.dao.ImovelDAO;
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
 import org.jcb.dojo.dominio.LatLongiBairroDTO;
@@ -60,7 +62,7 @@ public class ExecutaDao {
 			}
 			
 			manager.getTransaction().begin();
-			daoImovel.updatePreco();
+			//daoImovel.updatePreco();
 			manager.flush();
 			manager.getTransaction().commit();
 			EntityManager manager2 = factory.createEntityManager();
