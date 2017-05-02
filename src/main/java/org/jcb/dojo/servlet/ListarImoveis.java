@@ -20,13 +20,12 @@ public class ListarImoveis extends HttpServlet {
 	
 	@Override
 	public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.service(req, res);
-		
 		PrintWriter out = res.getWriter();
 		out.println("<html><body><p>");
 		out.println(ejb.recuperarTodos());
 		out.println("</p></body></html>");
+		out.flush();
+		out.close();
 	}
 
 }
