@@ -4,7 +4,7 @@
     xsi:schemaLocation="
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="dojoPU">
+    <persistence-unit name="dojoPU" transaction-type="JTA">
 		<class>org.jcb.dojo.dominio.Imovel</class>
 		<class>org.jcb.dojo.dominio.Endereco</class>
 		<jta-data-source>java:jboss/datasources/dojoDS</jta-data-source>
