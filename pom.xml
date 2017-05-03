@@ -11,7 +11,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-core</artifactId>
 			<version>4.3.9.Final</version>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.postgresql</groupId>
@@ -24,6 +24,7 @@
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-entitymanager</artifactId>
 			<version>4.3.9.Final</version>
+			<scope>provided</scope>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.wildfly/wildfly-ejb-client-bom -->
 		<dependency>
