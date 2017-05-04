@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -25,6 +26,9 @@ public class Imovel {
 		@OneToOne
 		private Endereco endereco;
 		
+		@ManyToOne
+		private Cliente cliente;
+
 		public Long getId() {
 			return id;
 		}
@@ -37,6 +41,14 @@ public class Imovel {
 			return lat;
 		}
 
+		public Cliente getCliente() {
+			return cliente;
+		}
+
+		public void setCliente(Cliente cliente) {
+			this.cliente = cliente;
+		}
+		
 		public void setLat(Double lat) {
 			this.lat = lat;
 		}
