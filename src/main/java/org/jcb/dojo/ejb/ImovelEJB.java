@@ -18,4 +18,8 @@ public class ImovelEJB {
 		System.out.println("Utilizando NamedQuery");
 		return em.createNamedQuery("Imovel.recuperarTodos").getResultList();
 	}
+	
+	public void criar(Imovel imovel) {
+		em.persist(imovel);
+	}
 }

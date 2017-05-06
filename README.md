@@ -66,6 +66,6 @@ Voltar para o o projeto dojo
 2. Configurar `Datasource`
 3. Trocar o DAO por EJB.
 4. Criar tela básica de cadastro de Imóveis
-5.
-O branch JPA-EJB-FINAL ajuda.
+5. O branch JPA-EJB-FINAL ajuda.
+
 >git checkout -b JPA-EJB-FINAL
