@@ -1,24 +1,36 @@
 package org.jcb.dojo.dominio;
 
+import java.math.BigDecimal;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="TB_Imovel")
 public class Imovel {
 
 		@Id
-		@GeneratedValue
+		@GeneratedValue(generator="imovel_seq")
+		@SequenceGenerator(name="imovel_seq",sequenceName="IMOVEL_SEQ")
 		private Long id;
-
+		
+		@Column(name="ImoLatitude",nullable=false, scale=2, precision=20)
 		private Double lat;
 
+		@Column(name="ImoLongitude", nullable=false, scale=2, precision=20)
 		private Double longi;
 		
-		private String endereço;
+		@Column(name="Endereco", length=512)
+		private String endereco;
 		
-		private Double preco;
+		private BigDecimal valor;
 	
+		private String descricao;
+		
 		public Long getId() {
 			return id;
 		}
@@ -43,19 +55,30 @@ public class Imovel {
 			this.longi = longi;
 		}
 
-		public String getEndereço() {
-			return endereço;
+		public String getEndereco() {
+			return endereco;
 		}
 
-		public void setEndereço(String endereço) {
-			this.endereço = endereço;
+		public void setEndereco(String endereco) {
+			this.endereco = endereco;
 		}
 
-		public Double getPreco() {
-			return preco;
+		public BigDecimal getValor() {
+			return valor;
 		}
 
-		public void setPreco(Double preco) {
-			this.preco = preco;
+		public void setValor(BigDecimal valor) {
+			this.valor = valor;
 		}
+
+		public String getDescricao() {
+			return descricao;
+		}
+
+		public void setDescricao(String descricao) {
+			this.descricao = descricao;
+		}
+		
+		
+		
 }

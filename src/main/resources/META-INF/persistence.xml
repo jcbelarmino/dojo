@@ -8,6 +8,8 @@
 	<persistence-unit name="dojoPU" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>org.jcb.dojo.dominio.Imovel</class>
+		<class>org.jcb.dojo.dominio.Contrato</class>
+		<class>org.jcb.dojo.dominio.Cliente</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
