@@ -59,9 +59,14 @@ Para inciar o dojo da Aula2
 
 >git checkout -b JPA-DAO
 
+* fazer programas de teste para verificar o momento de carga dos objetos dependento do ``FetchType``
+
 1. implementar um relacionamento ``@OneToOne`` entre Imovel e Endereço 
 2. implementar um relacionamento ``@OneToMany`` entre Imovel e Cliente
-3. implementar um relacionamento ``@ManyToOne`` 
+3. alterar o relacionamentos para ``LAZY``: ``@OneToOne ( fetch = FetchType.LAZY )``
+4. implementar um relacionamento ``@ManyToOne`` 
+4. implementar um relacionamento ``@ManyToMany``  apenas para efeito de teste
+5. alterar os relacinamentos para EAGER ``@ManyToOne ( fetch = FetchType.EAGER )``
 
 >git checkout -b JPA-relacionamento
 
