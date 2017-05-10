@@ -24,6 +24,34 @@ Para inciar o dojo da Aula2
 4. Fazer programa para remover um imóvel
 5. Fazer programa que consulta vários imóveis
 
+   ```
+   EntityManager  em;
+
+	public ImovelDAO(EntityManager em) {
+		super();
+		this.em = em;
+	}
+	
+	public void criar(Imovel i){
+		...
+	}
+	
+	public void remover(Long id) throws Exception{
+		...
+	}
+
+	public Imovel recuperarPorId(Serializable id) throws Exception {
+		...
+	}
+	
+	public void atualizar(Imovel entidade) throws Exception {
+		...
+	}
+	
+	public List<Imovel> recuperarTodos() {
+		...
+	}`` 
+
 
 >git checkout -b JPA-entidades
 
