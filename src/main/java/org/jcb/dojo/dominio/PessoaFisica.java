@@ -14,6 +14,12 @@ public class PessoaFisica extends Cliente{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+
+	@Override
+	public String toString() {
+		return "PessoaFisica [cpf=" + cpf + "]" ;
+	}
+	
 	
 	
 }

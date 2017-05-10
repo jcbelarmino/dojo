@@ -10,75 +10,79 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="TB_Imovel")
+@Table(name = "TB_Imovel")
 public class Imovel {
 
-		@Id
-		@GeneratedValue(generator="imovel_seq")
-		@SequenceGenerator(name="imovel_seq",sequenceName="IMOVEL_SEQ")
-		private Long id;
-		
-		@Column(name="ImoLatitude",nullable=false, scale=2, precision=20)
-		private Double lat;
+	@Id
+	@GeneratedValue(generator = "imovel_seq")
+	@SequenceGenerator(name = "imovel_seq", sequenceName = "IMOVEL_SEQ")
+	private Long id;
 
-		@Column(name="ImoLongitude", nullable=false, scale=2, precision=20)
-		private Double longi;
-		
-		@Column(name="Endereco", length=512)
-		private String endereco;
-		
-		private BigDecimal valor;
-	
-		private String descricao;
-		
-		public Long getId() {
-			return id;
-		}
+	@Column(name = "ImoLatitude", nullable = false, scale = 2, precision = 20)
+	private Double lat;
 
-		public void setId(Long id) {
-			this.id = id;
-		}
+	@Column(name = "ImoLongitude", nullable = false, scale = 2, precision = 20)
+	private Double longi;
 
-		public Double getLat() {
-			return lat;
-		}
+	@Column(name = "Endereco", length = 512)
+	private String endereco;
 
-		public void setLat(Double lat) {
-			this.lat = lat;
-		}
+	private BigDecimal valor;
 
-		public Double getLongi() {
-			return longi;
-		}
+	private String descricao;
 
-		public void setLongi(Double longi) {
-			this.longi = longi;
-		}
+	public Long getId() {
+		return id;
+	}
 
-		public String getEndereco() {
-			return endereco;
-		}
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-		public void setEndereco(String endereco) {
-			this.endereco = endereco;
-		}
+	public Double getLat() {
+		return lat;
+	}
 
-		public BigDecimal getValor() {
-			return valor;
-		}
+	public void setLat(Double lat) {
+		this.lat = lat;
+	}
 
-		public void setValor(BigDecimal valor) {
-			this.valor = valor;
-		}
+	public Double getLongi() {
+		return longi;
+	}
 
-		public String getDescricao() {
-			return descricao;
-		}
+	public void setLongi(Double longi) {
+		this.longi = longi;
+	}
 
-		public void setDescricao(String descricao) {
-			this.descricao = descricao;
-		}
-		
-		
-		
+	public String getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
+	}
+
+	public BigDecimal getValor() {
+		return valor;
+	}
+
+	public void setValor(BigDecimal valor) {
+		this.valor = valor;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@Override
+	public String toString() {
+		return "Imovel [id=" + id + ", lat=" + lat + ", longi=" + longi + ", endereco=" + endereco + ", valor=" + valor
+				+ ", descricao=" + descricao + "]\n";
+	}
+
 }
