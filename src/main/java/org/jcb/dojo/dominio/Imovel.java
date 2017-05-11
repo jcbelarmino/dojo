@@ -16,7 +16,8 @@ import javax.persistence.Table;
 	@NamedQuery(name="Imovel.recuperarPorMaiorValor", query = "select i from Imovel i where i.preco < :preco"),
 	@NamedQuery(name="Imovel.recuperarUnico", query = "select i from Imovel i where i.id = 4"),
 	@NamedQuery(name="Imovel.recuperarRuaLatLongi", query= "select i.lat, i.longi, i.endereco.bairro from Imovel i"),
-	@NamedQuery(name="Imovel.recuperarRuaLatLongiDTO", query= "select new org.jcb.dojo.dominio.LatLongiBairroDTO(i.lat, i.longi, i.endereco.bairro) from Imovel i")
+	@NamedQuery(name="Imovel.recuperarRuaLatLongiDTO", query= "select new org.jcb.dojo.dominio.LatLongiBairroDTO(i.lat, i.longi, i.endereco.bairro) from Imovel i"),
+	@NamedQuery(name="Imovel.recuperarContratosDoCliente", query= "SELECT DISTINCT(cliente) FROM PessoaFisica cliente LEFT JOIN FETCH cliente.contratos")
 })
 @Entity
 @Table(name="TBL_IMOVEL")
