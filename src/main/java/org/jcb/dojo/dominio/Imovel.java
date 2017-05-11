@@ -1,11 +1,14 @@
 package org.jcb.dojo.dominio;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -24,12 +27,23 @@ public class Imovel {
 	@Column(name = "ImoLongitude", nullable = false, scale = 2, precision = 20)
 	private Double longi;
 
-	@Column(name = "Endereco", length = 512)
-	private String endereco;
+	@OneToOne
+	private Endereco endereco;
 
 	private BigDecimal valor;
 
 	private String descricao;
+	
+	@OneToMany(mappedBy="imovel")
+	List<Contrato> contratos;
+
+	public List<Contrato> getContratos() {
+		return contratos;
+	}
+
+	public void setContratos(List<Contrato> contratos) {
+		this.contratos = contratos;
+	}
 
 	public Long getId() {
 		return id;
@@ -55,11 +69,11 @@ public class Imovel {
 		this.longi = longi;
 	}
 
-	public String getEndereco() {
+	public Endereco getEndereco() {
 		return endereco;
 	}
 
-	public void setEndereco(String endereco) {
+	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
 

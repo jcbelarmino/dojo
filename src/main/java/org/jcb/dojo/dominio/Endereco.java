@@ -3,6 +3,7 @@ package org.jcb.dojo.dominio;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Endereco{
@@ -17,8 +18,34 @@ public class Endereco{
     private String bairro;
     private String cidade;
     private String uf;
+    @OneToOne
+    private Imovel imovel;
     
-    public void setId(Long id) {
+    public Endereco() {
+    	
+    }
+    
+    public Endereco(String rua, String numero, String complemento, String bairro, String cidade, String uf) {
+		super();
+		this.rua = rua;
+		this.numero = numero;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cidade = cidade;
+		this.uf = uf;
+	}
+
+    
+    
+	public Imovel getImovel() {
+		return imovel;
+	}
+
+	public void setImovel(Imovel imovel) {
+		this.imovel = imovel;
+	}
+
+	public void setId(Long id) {
 		this.id = id;
 	}
     

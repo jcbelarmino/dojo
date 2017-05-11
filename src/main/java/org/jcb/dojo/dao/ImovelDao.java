@@ -5,46 +5,31 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
+import org.jcb.dao.DAOEntityManagerGenerico;
+import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
 
-public class ImovelDao {
-	EntityManager em;
-
-	public ImovelDao(EntityManager em) {
-		this.em = em;
-	}
+public class ImovelDao extends DAOEntityManagerGenerico<Imovel, Long> {
 
 	public void criar(Imovel i) {
-		em.getTransaction().begin();
-		em.persist(i);
-		em.getTransaction().commit();
+		getEm().persist(i);
 	}
-
 	public void remover(Long id) throws Exception {
-		em.getTransaction().begin();
 		Imovel imovel = recuperarPorId(id);
 		if (imovel != null) {
-			em.remove(imovel);
+			getEm().remove(imovel);
 		}
-		em.getTransaction().commit();
 	}
 
 	public Imovel recuperarPorId(Serializable id) throws Exception {
-		return em.find(Imovel.class, id);
+		return getEm().find(Imovel.class, id);
 	}
-
-	
-	
 	public void atualizar(Imovel entidade) throws Exception {
-		em.getTransaction().begin();
-		em.merge(entidade);
-		em.getTransaction().commit();
+		getEm().merge(entidade);
 	}
 
 	public List<Imovel> recuperarTodos() {
 		String sql = "select i from Imovel i";
-		return em.createQuery(sql, Imovel.class).getResultList();
-		
-		
+		return getEm().createQuery(sql, Imovel.class).getResultList();		
 	}
 }

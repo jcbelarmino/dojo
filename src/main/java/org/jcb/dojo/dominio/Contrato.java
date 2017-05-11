@@ -1,11 +1,12 @@
 package org.jcb.dojo.dominio;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,6 +24,36 @@ public class Contrato {
 
 		@Column(name="dataFim", nullable=false)
 		private Date dataFim;
+
+		
+		@ManyToOne
+		private Imovel imovel;
+		
+		@ManyToOne
+		private Cliente cliente;
+		
+		public Contrato(){}
+		
+		public Contrato(Date date, Date date2) {
+			this.dataInicio = date;
+			this.dataFim = date2;
+		}
+
+		public Cliente getCliente() {
+			return cliente;
+		}
+
+		public void setCliente(Cliente cliente) {
+			this.cliente = cliente;
+		}
+
+		public Imovel getImovel() {
+			return imovel;
+		}
+
+		public void setImovel(Imovel imovel) {
+			this.imovel = imovel;
+		}
 
 		public Long getId() {
 			return id;

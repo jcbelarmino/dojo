@@ -10,6 +10,7 @@
 		<class>org.jcb.dojo.dominio.Imovel</class>
 		<class>org.jcb.dojo.dominio.Contrato</class>
 		<class>org.jcb.dojo.dominio.Cliente</class>
+		<class>org.jcb.dojo.dominio.Endereco</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />

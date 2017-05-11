@@ -5,7 +5,8 @@ import javax.persistence.Entity;
 @Entity
 public class PessoaFisica extends Cliente{
 
-	String cpf;
+	private String cpf;
+	
 
 	public String getCpf() {
 		return cpf;
