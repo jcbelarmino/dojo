@@ -20,7 +20,7 @@ import org.jcb.dojo.dominio.PessoaFisica;
 public class CriaBase {
 
 	public static void main(String[] args) throws Exception {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("dojoPU");
+		EntityManagerFactory factory = Persistence.createEntityManagerFactory("dojoPUh2");
 		EntityManager em = factory.createEntityManager();
 		em.getTransaction().begin();
 		DAOEntityManagerGenerico<Endereco, Long> enderecoDao = new DAOEntityManagerGenerico<Endereco, Long>(em) 
@@ -33,15 +33,15 @@ public class CriaBase {
 		};
 
 		
-		
+		List<Endereco> enderecos = new ArrayList<Endereco>();
 		
 		for(int i=0; i< 10; ++i){
 			Endereco e = new Endereco("rua", "numero","teste","Taguatinga","Brasilia", "DF");
 			e = enderecoDao.persistir(e);
+			enderecos.add(e);
 			Imovel im = inicializarEntidadeExemplo();
-			//e.setImovel(im);
+			e.setImovel(im);
 			im.setEndereco(e);
-			
 			imoveldao.persistir(im);
 			Cliente c = inicializarEntidadeCliente();
 			List<Contrato> contratos = new ArrayList();
@@ -54,6 +54,7 @@ public class CriaBase {
 				contratoDao.persistir(contrato);
 			}
 			c.setContratos(contratos);
+			c.setEndereco(enderecos);
 			clienteDao.persistir(c);
 		}
 		
