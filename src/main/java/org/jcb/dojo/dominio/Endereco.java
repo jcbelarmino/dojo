@@ -82,6 +82,15 @@ public class Endereco{
 	public void setUf(String uf) {
 		this.uf = uf;
 	}
+	
+	public Imovel getImovel() {
+		return imovel;
+	}
+
+	public void setImovel(Imovel imovel) {
+		this.imovel = imovel;
+	}
+
 	@Override
 	public String toString() {
 		return "Endereco [id=" + id + ", rua=" + rua + ", numero=" + numero + ", complemento=" + complemento

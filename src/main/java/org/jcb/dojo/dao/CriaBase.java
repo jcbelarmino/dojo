@@ -32,28 +32,45 @@ public class CriaBase {
 		DAOEntityManagerGenerico<Contrato, Long> contratoDao = new DAOEntityManagerGenerico<Contrato, Long>(em) {
 		};
 
-		
-		
+		//Lista de endereços que vai ser relacionada com o Cliente no relacionamento ManyToMany
+		List<Endereco> enderecos = new ArrayList<Endereco>();
 		
 		for(int i=0; i< 10; ++i){
+			//Cria o objeto endereço
 			Endereco e = new Endereco("rua", "numero","teste","Taguatinga","Brasilia", "DF");
+			//grava na base
 			e = enderecoDao.persistir(e);
+			//Adiciona um endereço na lista.
+			enderecos.add(e);
+			//Cria o objeto imovel
 			Imovel im = inicializarEntidadeExemplo();
-			//e.setImovel(im);
+			//relaciona o imovel com o endereço
+			e.setImovel(im);
+			//relaciona o endereco com o imovel
 			im.setEndereco(e);
-			
+			//grava o imovel na base
 			imoveldao.persistir(im);
+			//cria o objeto Cliente
 			Cliente c = inicializarEntidadeCliente();
+			//cria lista de contratos
 			List<Contrato> contratos = new ArrayList();
 			for(int j = 0; j < 10; j++) {
-				
+				//cria o contrato
 				Contrato contrato = new Contrato(new Date(), new Date()); 
+				//relaciona o contrato com cliente
 				contrato.setCliente(c);
+				//Relaciona o contrato com imovel
 				contrato.setImovel(im);
+				//adiciona o contrato na lista de contratos
 				contratos.add(contrato);
+				//grava o contrato no  banco
 				contratoDao.persistir(contrato);
 			}
+			//associa a lista de contratos com o cliente
 			c.setContratos(contratos);
+			//associa a lista de enderecos com o cliente
+			c.setEndereco(enderecos);
+			//grava o cliente no banco
 			clienteDao.persistir(c);
 		}
 		
