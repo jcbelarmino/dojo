@@ -4,13 +4,20 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 import org.jcb.dao.DAOEntityManagerGenerico;
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
 
+
 public class ImovelDao extends DAOEntityManagerGenerico<Imovel, Long> {
 
+	public ImovelDao(EntityManager em) {
+		// TODO Auto-generated constructor stub
+		super(em);
+	}
 	public void criar(Imovel i) {
 		getEm().persist(i);
 	}
@@ -28,8 +35,7 @@ public class ImovelDao extends DAOEntityManagerGenerico<Imovel, Long> {
 		getEm().merge(entidade);
 	}
 
-	public List<Imovel> recuperarTodos() {
-		String sql = "select i from Imovel i";
-		return getEm().createQuery(sql, Imovel.class).getResultList();		
+	public List<Imovel> recuperarTodosFetch() {
+		return getEm().createNamedQuery("Imovel.recuperarTodosFetch").getResultList();
 	}
 }

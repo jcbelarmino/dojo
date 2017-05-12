@@ -18,8 +18,6 @@ public class Endereco{
     private String bairro;
     private String cidade;
     private String uf;
-    @OneToOne
-    private Imovel imovel;
     
     public Endereco() {
     	
@@ -33,17 +31,7 @@ public class Endereco{
 		this.bairro = bairro;
 		this.cidade = cidade;
 		this.uf = uf;
-	}
-
-    
-    
-	public Imovel getImovel() {
-		return imovel;
-	}
-
-	public void setImovel(Imovel imovel) {
-		this.imovel = imovel;
-	}
+    }
 
 	public void setId(Long id) {
 		this.id = id;

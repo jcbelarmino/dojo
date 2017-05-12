@@ -25,8 +25,7 @@ public class CriaBase {
 		DAOEntityManagerGenerico<Endereco, Long> enderecoDao = new DAOEntityManagerGenerico<Endereco, Long>(em) 
 		{
 		};
-		DAOEntityManagerGenerico<Imovel, Long> imovelDao = new DAOEntityManagerGenerico<Imovel, Long>(em) {
-		};
+		ImovelDao imoveldao = new ImovelDao(em); 
 		DAOEntityManagerGenerico<Cliente, Long> clienteDao = new DAOEntityManagerGenerico<Cliente, Long>(em) {
 		};
 		DAOEntityManagerGenerico<Contrato, Long> contratoDao = new DAOEntityManagerGenerico<Contrato, Long>(em) {
@@ -34,12 +33,12 @@ public class CriaBase {
 
 		
 		
-		
+		/*
 		for(int i=0; i< 10; ++i){
 			Endereco e = new Endereco("rua", "numero","teste","Taguatinga","Brasilia", "DF");
 			e = enderecoDao.persistir(e);
 			Imovel im = inicializarEntidadeExemplo();
-			e.setImovel(im);
+			//e.setImovel(im);
 			im.setEndereco(e);
 			
 			imovelDao.persistir(im);
@@ -56,11 +55,17 @@ public class CriaBase {
 			c.setContratos(contratos);
 			clienteDao.persistir(c);
 		}
-		
+		*/
 		
 		
 		em.getTransaction().commit();
-		System.out.println(imovelDao.listarTodos());
+		//List imoveis = imoveldao.recuperarTodosFetch();
+//		List<Contrato> contratos = contratoDao.listarTodos();
+//		System.out.println(" ###################\nQTD contrato=>"+contratos.size());
+//		System.out.println(contratos);
+		Cliente cliente = clienteDao.consultarPorID(9L, false);
+		System.out.println(" ###################\nQTD clientes=>"+cliente);
+		System.out.println(cliente.getContratos());
 		
 		// Pessoa Física
 		//PessoaFisicaDao pfDAO = new PessoaFisicaDao(em);
@@ -110,7 +115,7 @@ public class CriaBase {
 		Random rand = new Random();
 		
 		Imovel i = new Imovel();
-		i.setDescricao(rand.nextInt(5) + 1 + " quartos, " + rand.nextInt(5) + 1 + " banheiros ");
+		i.setDescricao(rand.nextInt(5) + 1 + " quartos, " + rand.nextInt(3) + 1 + " banheiros ");
 		i.setLat(rand.nextDouble() * 100.0);
 		i.setLongi(rand.nextDouble() * 100.0);
 		i.setValor(new BigDecimal(rand.nextDouble() * 100.0));

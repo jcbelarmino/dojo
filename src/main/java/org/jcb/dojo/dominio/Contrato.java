@@ -14,6 +14,12 @@ import javax.persistence.Table;
 @Table(name="TB_Contrato")
 public class Contrato {
 
+		@Override
+	public String toString() {
+		return "Contrato [id=" + id + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ", imovel=" + imovel
+				+ ", cliente=" + cliente + "]";
+	}
+
 		@Id
 		@GeneratedValue(generator="contrato_seq")
 		@SequenceGenerator(name="contrato_seq",sequenceName="CONTRATO_SEQ")
