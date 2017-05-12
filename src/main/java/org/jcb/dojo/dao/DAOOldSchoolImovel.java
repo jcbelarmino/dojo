@@ -34,7 +34,7 @@ public class DAOOldSchoolImovel {
 		while(rs.next()){
 			Imovel i = new Imovel();
 			i.setDescricao(rs.getString("descricao"));
-			i.setEndereco(rs.getString("endereco"));
+			//i.setEndereco(rs.getString("endereco"));
 			i.setLat(rs.getDouble("imolatitude"));
 			i.setLongi(rs.getDouble("imolongitude"));
 			i.setId(rs.getLong("id"));

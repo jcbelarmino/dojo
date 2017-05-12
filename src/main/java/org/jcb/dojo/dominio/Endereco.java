@@ -19,6 +19,9 @@ public class Endereco{
     private String cidade;
     private String uf;
     
+    @OneToOne
+    Imovel imovel;
+    
     public Endereco() {
     	
     }
@@ -33,6 +36,7 @@ public class Endereco{
 		this.uf = uf;
     }
 
+    
 	public void setId(Long id) {
 		this.id = id;
 	}

@@ -18,7 +18,7 @@ import javax.persistence.Table;
 @Table(name="TB_Cliente")
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "cliente_tipo")
-public class Cliente {
+public abstract class Cliente {
 
 		@Id
 		@GeneratedValue(generator="cliente_seq")
@@ -33,7 +33,7 @@ public class Cliente {
 		
 		@OneToMany(mappedBy="cliente")
 		List<Contrato> contratos;
-
+		
 		public List<Contrato> getContratos() {
 			return contratos;
 		}

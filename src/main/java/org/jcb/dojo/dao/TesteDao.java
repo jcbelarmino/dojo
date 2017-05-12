@@ -14,7 +14,7 @@ public class TesteDao {
 		i.setLat(-10.213561236);
 		i.setLongi(36.3652476532);
 		i.setValor(new BigDecimal(2.212));
-		i.setEndereco("Asa Norte");	
+		//i.setEndereco("Asa Norte");	
 		dao.criar(i);
 		System.out.println( dao.recuperarTodos());
 	}

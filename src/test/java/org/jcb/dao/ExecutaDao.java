@@ -29,7 +29,7 @@ public class ExecutaDao {
 			imovel.setEndereco(e);
 			imovel.setLat(-15.7728457);
 			imovel.setLongi(-47.8659963);
-			imovel.setPreco(3000.00);
+			//imovel.setPreco(3000.00);
 			daoEndereco.persistir(e);
 			daoImovel.persistir(imovel);	
 			System.out.println(" flush");

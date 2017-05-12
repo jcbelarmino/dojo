@@ -152,10 +152,9 @@ public class Imovel {
 
 	@Override
 	public String toString() {
-		return "Imovel [id=" + id + ", lat=" + lat + ", longi=" + longi + ", "
-				+ "endereco=" + endereco + ","
-						+ " valor=" + valor
-				+ ", descricao=" + descricao + "]\n";
+		return "Imovel [id=" + id + ", lat=" + lat + ", longi=" + longi + ", endereco=" + endereco + ", valor=" + valor
+				+ ", descricao=" + descricao + ", contratos=" + contratos + "]";
 	}
 
+	
 }

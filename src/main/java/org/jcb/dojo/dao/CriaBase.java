@@ -15,6 +15,7 @@ import org.jcb.dojo.dominio.Cliente;
 import org.jcb.dojo.dominio.Contrato;
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
+import org.jcb.dojo.dominio.PessoaFisica;
 
 public class CriaBase {
 
@@ -33,7 +34,7 @@ public class CriaBase {
 
 		
 		
-		/*
+		
 		for(int i=0; i< 10; ++i){
 			Endereco e = new Endereco("rua", "numero","teste","Taguatinga","Brasilia", "DF");
 			e = enderecoDao.persistir(e);
@@ -41,7 +42,7 @@ public class CriaBase {
 			//e.setImovel(im);
 			im.setEndereco(e);
 			
-			imovelDao.persistir(im);
+			imoveldao.persistir(im);
 			Cliente c = inicializarEntidadeCliente();
 			List<Contrato> contratos = new ArrayList();
 			for(int j = 0; j < 10; j++) {
@@ -55,7 +56,6 @@ public class CriaBase {
 			c.setContratos(contratos);
 			clienteDao.persistir(c);
 		}
-		*/
 		
 		
 		em.getTransaction().commit();
@@ -64,6 +64,8 @@ public class CriaBase {
 //		System.out.println(" ###################\nQTD contrato=>"+contratos.size());
 //		System.out.println(contratos);
 		Cliente cliente = clienteDao.consultarPorID(9L, false);
+		System.out.println(imoveldao.consultarPorID(4L, false).getContratos());
+		
 		System.out.println(" ###################\nQTD clientes=>"+cliente);
 		System.out.println(cliente.getContratos());
 		
@@ -97,17 +99,13 @@ public class CriaBase {
 		
 		//System.out.println(i);
 		
-		
-		
-		
 		factory.close();
 	}
 
 	private static Cliente inicializarEntidadeCliente() {
 		Random rand = new Random();
-		Cliente c = new Cliente();
+		Cliente c = new PessoaFisica();
 		c.setNome("Joao "+rand.nextInt(100));
-		
 		return c;
 	}
 
