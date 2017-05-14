@@ -24,6 +24,34 @@ Para inciar o dojo da Aula2
 4. Fazer programa para remover um imóvel
 5. Fazer programa que consulta vários imóveis
 
+   ```
+   EntityManager  em;
+
+	public ImovelDAO(EntityManager em) {
+		super();
+		this.em = em;
+	}
+	
+	public void criar(Imovel i){
+		...
+	}
+	
+	public void remover(Long id) throws Exception{
+		...
+	}
+
+	public Imovel recuperarPorId(Serializable id) throws Exception {
+		...
+	}
+	
+	public void atualizar(Imovel entidade) throws Exception {
+		...
+	}
+	
+	public List<Imovel> recuperarTodos() {
+		...
+	}`` 
+
 
 >git checkout -b JPA-entidades
 
@@ -31,9 +59,14 @@ Para inciar o dojo da Aula2
 
 >git checkout -b JPA-DAO
 
+* fazer programas de teste para verificar o momento de carga dos objetos dependento do ``FetchType``
+
 1. implementar um relacionamento ``@OneToOne`` entre Imovel e Endereço 
 2. implementar um relacionamento ``@OneToMany`` entre Imovel e Cliente
-3. implementar um relacionamento ``@ManyToOne`` 
+3. alterar o relacionamentos para ``LAZY``: ``@OneToOne ( fetch = FetchType.LAZY )``
+4. implementar um relacionamento ``@ManyToOne`` 
+4. implementar um relacionamento ``@ManyToMany``  apenas para efeito de teste
+5. alterar os relacinamentos para EAGER ``@ManyToOne ( fetch = FetchType.EAGER )``
 
 >git checkout -b JPA-relacionamento
 
@@ -59,6 +92,14 @@ Implantar o projeto dojo-ejb
 1. Testar as chamadas remotas.
 
 Voltar para o o projeto dojo
+Codigo de exemplo em:
+>git checkout -b JPA-JPQL
+
+Para o módulo EJB:
+
+Implantar o projeto dojo-ejb  
+
+1. Testar as chamadas remotas.
 
 >git checkout -b JPA-EJB
 
@@ -67,5 +108,16 @@ Voltar para o o projeto dojo
 3. Trocar o DAO por EJB.
 4. Criar tela básica de cadastro de Imóveis
 5. O branch JPA-EJB-FINAL ajuda.
+Voltar para o o projeto dojo
+Voltar para o o projeto dojo
 
+>git checkout -b JPA-EJB-FINAL
+>git checkout -b JPA-EJB
+
+1. testar o `HelloServlet`
+2. Configurar `Datasource`
+3. Trocar o DAO por EJB.
+4. Criar tela básica de cadastro de Imóveis
+
+O branch JPA-EJB-FINAL ajuda.
 >git checkout -b JPA-EJB-FINAL
