@@ -2,6 +2,7 @@ package org.jcb.dojo.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.jcb.dojo.ejb.HelloWorld;
 
-@WebServlet("/soma")
+@WebServlet("/alo")
 public class HelloServlet extends HttpServlet {
 	@EJB
 	private HelloWorld helloEjb;
@@ -19,9 +20,11 @@ public class HelloServlet extends HttpServlet {
 	protected void service(HttpServletRequest req, HttpServletResponse res) throws IOException {
 		String nome = req.getParameter("nome");
 		String resultado = this.helloEjb.hello(nome);
+		List<String> historico = helloEjb.historico();
 		PrintWriter out = res.getWriter();
 		out.println("<html><body><p>");
 		out.println(resultado);
+		out.println("<p>"+historico);
 		out.println("</p></body></html>");
 	}
 }
