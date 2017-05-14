@@ -1,6 +1,7 @@
 package org.jcb.dojo.servlet;
 
 import java.io.IOException;
+import java.math.BigDecimal;
 
 import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
@@ -44,7 +45,7 @@ public class ListarImoveis extends HttpServlet {
 						errorMessage.append("Preço não pode ser nulo \n");
 					} else // all parameters are filled, register
 					{
-						imovel.setPreco(Double.valueOf(value));
+						imovel.setValor(new BigDecimal(Double.valueOf(value)));
 
 						log("\n*****************Tentando gravar o imóvel=" + imovel);
 						ejb.criar(imovel);

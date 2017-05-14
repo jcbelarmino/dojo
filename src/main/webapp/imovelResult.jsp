@@ -17,7 +17,7 @@
 <tr>
 <th>Latitude</th>
 <th>Longitude</th>
-<th>Preço</th>
+<th>Valor</th>
 </tr>
 </thead>
 <tbody>
@@ -25,7 +25,7 @@
 	<tr>
 		<td><c:out value="${imovel.lat}"/></td>
 		<td><c:out value="${imovel.longi}"/></td>
-		<td><c:out value="${imovel.preco}"/></td>
+		<td><c:out value="${imovel.valor}"/></td>
 	</tr>
 </c:forEach>
 </tbody>

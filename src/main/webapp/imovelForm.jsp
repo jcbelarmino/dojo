@@ -24,7 +24,7 @@
 				<td><input type="text" id=longitude name="longitude" value="" /></td>
 			</tr>
 			<tr>
-				<td style="text-align: right;"><label for="preco">Preço$:</label></td>
+				<td style="text-align: right;"><label for="preco">Valor$:</label></td>
 				<td><input id="preco" name="preco" type="text" value="" /></td>
 			</tr>
 		</table>

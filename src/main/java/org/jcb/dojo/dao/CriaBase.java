@@ -10,7 +10,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import org.jcb.dao.DAOEntityManagerGenerico;
 import org.jcb.dojo.dominio.Cliente;
 import org.jcb.dojo.dominio.Contrato;
 import org.jcb.dojo.dominio.Endereco;

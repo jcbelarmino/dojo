@@ -6,6 +6,7 @@ import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.jcb.dojo.dao.ImovelDao;
 import org.jcb.dojo.dominio.Imovel;
 
 @Stateless
@@ -15,8 +16,8 @@ public class ImovelEJB {
 	EntityManager em;
 	
 	public List<Imovel> recuperarTodos() {
-		System.out.println("Utilizando NamedQuery");
-		return em.createNamedQuery("Imovel.recuperarTodos").getResultList();
+		ImovelDao dao = new ImovelDao(em);
+		return dao.recuperarTodosFetch();
 	}
 	
 	public void criar(Imovel imovel) {
