@@ -21,6 +21,14 @@ public abstract class DAOEntityManagerGenerico<T, ID extends Serializable> imple
 				.getActualTypeArguments()[0];
 	}
 
+	public EntityManager getEm() {
+		return em;
+	}
+
+	public void setEm(EntityManager em) {
+		this.em = em;
+	}
+
 	public DAOEntityManagerGenerico(EntityManager em) {
 		this();
 		this.em = em;

@@ -10,7 +10,6 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
-import org.hibernate.service.spi.InjectService;
 import org.jcb.dojo.dominio.Imovel;
 import org.jcb.dojo.ejb.ImovelEJB;
 
@@ -28,9 +27,6 @@ public class ListarImoveis extends HttpServlet {
 
 			System.out.println("Latitude='" + request.getParameter("latitude") + "'");
 			Imovel imovel = new Imovel();
-			// create a new member, remember :) the memberservice do not
-			// call the initMethod if an error occur during the previous persist
-			// request
 
 			String value ;
 
