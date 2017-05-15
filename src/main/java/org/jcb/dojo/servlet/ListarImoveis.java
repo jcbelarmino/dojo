@@ -24,7 +24,7 @@ public class ListarImoveis extends HttpServlet {
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		StringBuilder errorMessage = new StringBuilder();
 
-		try {
+		try {	
 
 			System.out.println("Latitude='" + request.getParameter("latitude") + "'");
 			Imovel imovel = new Imovel();

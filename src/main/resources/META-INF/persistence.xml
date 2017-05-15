@@ -17,6 +17,10 @@
 			<!-- create, drop-and-create, none, drop. -->
 			<property name="javax.persistence.schema-generation.database.action"
 				value="none" />
+			<property name="hibernate.id.new_generator_mappings"
+				value="false" />
+
+				
 			</properties>
 
 	</persistence-unit>
