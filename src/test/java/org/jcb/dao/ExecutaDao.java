@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
+import org.jcb.dojo.dao.DAOEntityManagerGenerico;
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
 
@@ -18,7 +19,7 @@ public class ExecutaDao {
 		EntityManager manager = factory.createEntityManager();
 	
 		try {
-				DAOEntityManagerGenerico<Imovel, Long> daoImovel = new DAOEntityManagerGenerico<Imovel, Long>(manager) {
+			DAOEntityManagerGenerico<Imovel, Long> daoImovel = new DAOEntityManagerGenerico<Imovel, Long>(manager) {
 			};
 			
 			DAOEntityManagerGenerico<Endereco, Long> daoEndereco = new DAOEntityManagerGenerico<Endereco, Long>(manager) {

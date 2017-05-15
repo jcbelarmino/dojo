@@ -24,7 +24,8 @@ public class ImovelEJB {
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void criar(Imovel imovel) throws MinhaException {
-		em.persist(imovel);
+		ImovelDao dao = new ImovelDao(em);
+		dao.persistir(imovel);
 		//throw new MinhaException("erro no cadastro");
 	}
 }

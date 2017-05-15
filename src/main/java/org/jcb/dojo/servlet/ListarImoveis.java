@@ -30,6 +30,7 @@ public class ListarImoveis extends HttpServlet {
 			Imovel imovel = new Imovel();
 
 			String value ;
+			String descricao ;
 
 			if ("".equals(value = request.getParameter("latitude")) || value == null ) {
 				errorMessage.append("Latitude não pode ser nula\n");
@@ -45,6 +46,13 @@ public class ListarImoveis extends HttpServlet {
 						errorMessage.append("Preço não pode ser nulo \n");
 					} else // all parameters are filled, register
 					{
+						
+						if ("".equals(descricao = request.getParameter("descricao")) || descricao == null ) {
+							errorMessage.append("Descrição não pode ser nula\n");
+						}else{
+							imovel.setDescricao(descricao);
+						}
+						
 						imovel.setValor(new BigDecimal(Double.valueOf(value)));
 
 						log("\n*****************Tentando gravar o imóvel=" + imovel);
@@ -53,6 +61,9 @@ public class ListarImoveis extends HttpServlet {
 					}
 				}
 			}
+			
+			
+			
 		//Inclui a lista de todos os imoveis
 		request.setAttribute("imoveis", ejb.recuperarTodos());
 

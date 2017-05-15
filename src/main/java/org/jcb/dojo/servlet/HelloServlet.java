@@ -13,6 +13,7 @@ import org.jcb.dojo.ejb.HelloWorld;
 
 @WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
+	
 	@EJB
 	private HelloWorld helloEjb;
 

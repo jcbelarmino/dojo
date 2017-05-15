@@ -18,6 +18,7 @@
 <th>Latitude</th>
 <th>Longitude</th>
 <th>Valor</th>
+<th>Descrição</th>
 </tr>
 </thead>
 <tbody>
@@ -26,6 +27,7 @@
 		<td><c:out value="${imovel.lat}"/></td>
 		<td><c:out value="${imovel.longi}"/></td>
 		<td><c:out value="${imovel.valor}"/></td>
+		<td><c:out value="${imovel.descricao}"/></td>
 	</tr>
 </c:forEach>
 </tbody>
