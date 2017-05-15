@@ -17,7 +17,7 @@ public class Monitor {
 	@Schedule(minute="*", hour="*")
 	public void monitoraImoveis(){
 		ImovelDao dao = new ImovelDao(em);
-		System.out.println(" QTD imoveis cadastrados: "+dao.listarTodos().size());
+		//System.out.println(" QTD imoveis cadastrados: "+dao.listarTodos().size());
 	}
 
 }
