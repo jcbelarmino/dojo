@@ -6,9 +6,11 @@
         http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 
 	<persistence-unit name="dojoPU" transaction-type="JTA">
-		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>org.jcb.dojo.dominio.Imovel</class>
+		<class>org.jcb.dojo.dominio.Contrato</class>
+		<class>org.jcb.dojo.dominio.Cliente</class>
 		<class>org.jcb.dojo.dominio.Endereco</class>
+		<jta-data-source>java:jboss/datasources/dojoDS</jta-data-source>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
@@ -16,9 +18,7 @@
 			<!-- create, drop-and-create, none, drop. -->
 			<property name="javax.persistence.schema-generation.database.action"
 				value="none" />
-			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jader"></property>
-			<property name="javax.persistence.jdbc.user" value="jader" />
-		</properties>
+			</properties>
+
 	</persistence-unit>
 </persistence> 
