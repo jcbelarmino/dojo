@@ -22,6 +22,7 @@ public class Endereco{
     @OneToOne
     Imovel imovel;
     
+    
     public Endereco() {
     	
     }

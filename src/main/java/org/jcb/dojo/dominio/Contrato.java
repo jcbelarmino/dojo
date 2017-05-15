@@ -82,7 +82,7 @@ public class Contrato {
 	@Override
 	public String toString() {
 		return "Contrato [id=" + id + ", dataInicio=" + dataInicio + ", dataFim=" + dataFim + ","
-						+ "]";
+						+"]";
 	}
 
 }

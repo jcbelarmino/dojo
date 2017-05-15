@@ -47,3 +47,5 @@ ehthumbs.db
 Thumbs.db
 /dojo.iml
 /README.md
+/.tern-project
+/target.mv.db

@@ -17,7 +17,7 @@
 			<property name="hibernate.format_sql" value="true"/>
 			<!-- create, drop-and-create, none, drop. -->
 			<property name="javax.persistence.schema-generation.database.action"
-				value="none" />
+				value="drop-and-create" />
 			<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver" />
 			<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jader"></property>
 			<property name="javax.persistence.jdbc.user" value="jader" />
