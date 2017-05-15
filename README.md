@@ -93,6 +93,29 @@ Implantar o projeto dojo-ejb
 
 Voltar para o o projeto dojo
 
+# configurar datasource
+
+```
+ <datasource jndi-name="java:jboss/datasources/dojoDS" pool-name="dojo-pool" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:postgresql://localhost:5432/jader</connection-url>
+                    <driver>postgresql</driver>
+                    <pool>
+                        <min-pool-size>2</min-pool-size>
+                        <initial-pool-size>2</initial-pool-size>
+                        <max-pool-size>10</max-pool-size>
+                    </pool>
+                    <security>
+                        <user-name>jader</user-name>
+                    </security>
+                    <validation>
+                        <valid-connection-checker class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLValidConnectionChecker"/>
+                        <exception-sorter class-name="org.jboss.jca.adapters.jdbc.extensions.postgres.PostgreSQLExceptionSorter"/>
+                    </validation>
+                </datasource>
+```
+
+dentro da tag ``<datasources> ... </datasources>`` do standalone.xml
+
 >git checkout -b JPA-EJB
 
 1. testar o `HelloServlet`
