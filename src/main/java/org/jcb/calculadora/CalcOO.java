@@ -13,51 +13,102 @@ public class CalcOO {
 
 	public static void main(String args[]) {
 		// criando um objeto c a apartir do metodo calc
-        
+
 		// declarando as varíaveis
 		Nodo resultado = new Valor(0);
-		int opcao = 5;
-		int num1;
-		int num2;
+		String expressao = "";
 		Scanner input = new Scanner(System.in);
-		System.out.println("- Escolha uma opção -");
-		System.out.println("1. Soma");
-		System.out.println("2. Subtracao");
-		System.out.println("3. Multiplicacao");
-		System.out.println("4. Divisao");
-		System.out.println("0. Sair");
-		System.out.println("Operação: ");
-		opcao = input.nextInt();
-		while (opcao != 0) {
-			Scanner input1 = new Scanner(System.in);
-			System.out.println("Qual o primeiro numero: ");
-			num1 = input1.nextInt();
-			Nodo esquerda = new Valor(num1);
-			System.out.println("Qual o segundo numero: ");
-			num2 = input1.nextInt();
-			Nodo direita = new Valor(num2);
-			if (opcao == 1) {
-				resultado = new Soma(esquerda, direita);
-				System.out.print("\nO resultado da soma é: ");
-				break;
-			} else if (opcao == 2) {
-				resultado = new Subtracao(esquerda, direita);
-				System.out.print("\nO resultado da subtração é: ");
-				break;
-			} else if (opcao == 3) {
-				resultado = new Multiplicacao(esquerda, direita);
-				System.out.print("\nO resultado da multiplicação é:" );
-				break;
-			} else if (opcao == 4) {
-				resultado = new Divisao(esquerda, direita);
-				System.out.printf("\nO resultado da divisão é:");
-				break;
-			} else {
-				System.out.println("????");
-				break;
-			}
-		
-		}// fim do while - usuario optou por sair
-		System.out.println( resultado.calcula());
+		System.out.println("Informe uma expressão");
+		expressao = input.next();
+		resultado = parser(expressao);
+		System.out.println("Resultado: " + resultado.calcula());
 	} // fim do metodo principal
+
+	private static Nodo parser(String expressao) {
+		Nodo resultado = new Valor(0);
+		if (expressao.isEmpty() || expressao == "") {
+			System.out.println("Favor informar uma expressão");
+		} else {
+			try {
+				// int i = 0;
+				// resultado = new Valor(Integer.parseInt(expressao.charAt(i) +
+				// ""));
+
+				Scanner scanner = new Scanner(expressao);
+				Scanner scannerOperacao = new Scanner(expressao);
+				scanner.useDelimiter("[+-/*//]");
+				scannerOperacao.useDelimiter("\\d+");
+
+				resultado = new Valor(Integer.parseInt(scanner.next().trim()));
+				while (scanner.hasNext()) {
+					System.out.println(1 + "");
+					Nodo esquerda = resultado;
+					System.out.println(esquerda.calcula());
+					String opcao = scannerOperacao.next().trim();
+					System.out.println(opcao);
+					// System.out.println(scanner.next().trim());
+					Nodo direita = new Valor(Integer.parseInt(scanner.next().trim()));
+					// System.out.println(scanner.delimiter().toString());
+					System.out.println(direita.calcula());
+					switch (opcao) {
+					case "+":
+						resultado = new Soma(esquerda, direita);
+						break;
+					case "-":
+						resultado = new Subtracao(esquerda, direita);
+					case "*":
+						resultado = new Multiplicacao(esquerda, direita);
+						break;
+					case "/":
+						resultado = new Divisao(esquerda, direita);
+						break;
+					default:
+						break;
+
+					}
+					// i = i + 2;
+				}
+			} catch (Exception e) {
+				System.out.println("Informar expressão válida");
+			}
+		}
+		return resultado;
+	}
+
+	// private static Nodo parser(String expressao) {
+	// Nodo resultado = new Valor(0);
+	// if (expressao.isEmpty() || expressao == "") {
+	// System.out.println("Favor informar uma expressão");
+	// } else {
+	// try {
+	// int i = 0;
+	// resultado = new Valor(Integer.parseInt(expressao.charAt(i) + ""));
+	// while (i < expressao.length()) {
+	//
+	// Nodo esquerda = resultado;
+	// Nodo direita = new Valor(Integer.parseInt(expressao.charAt(i + 2) + ""));
+	// switch (expressao.charAt(i + 1)) {
+	// case '+':
+	// resultado = new Soma(esquerda, direita);
+	// break;
+	// case '-':
+	// resultado = new Subtracao(esquerda, direita);
+	// case '*':
+	// resultado = new Multiplicacao(esquerda, direita);
+	// break;
+	// case '/':
+	// resultado = new Divisao(esquerda, direita);
+	// break;
+	// default:
+	// break;
+	//
+	// }
+	// i = i + 2;
+	// }
+	// } catch (Exception e) {
+	// System.out.println("Informar expressão válida");
+	// }
+	// }
+	// return resultado;
+	// }
 }
