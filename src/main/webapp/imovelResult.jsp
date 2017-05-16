@@ -11,10 +11,11 @@
 </head>
 <body>
 
-<h4>Imóveis</h4>
+<h4>Imóveis - ${qtdImoveis} cadastrados</h4>
 <table class="simpletablestyle">
 <thead>
 <tr>
+<th>Id</th>
 <th>Latitude</th>
 <th>Longitude</th>
 <th>Valor</th>
@@ -22,8 +23,9 @@
 </tr>
 </thead>
 <tbody>
-<c:forEach items="${imoveis}" var="imovel">
+<c:forEach items="${listaImoveis}" var="imovel">
 	<tr>
+	<td><c:out value="${imovel.id}"/></td>
 		<td><c:out value="${imovel.lat}"/></td>
 		<td><c:out value="${imovel.longi}"/></td>
 		<td><c:out value="${imovel.valor}"/></td>

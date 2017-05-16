@@ -26,6 +26,13 @@ public class ImovelEJB {
 	public void criar(Imovel imovel) throws MinhaException {
 		ImovelDao dao = new ImovelDao(em);
 		dao.persistir(imovel);
-		//throw new MinhaException("erro no cadastro");
+		throw new MinhaException("erro no cadastro");
+		//throw new NullPointerException("erro no cadastro");
+	}
+	
+	@TransactionAttribute(TransactionAttributeType.SUPPORTS)
+	public void metodoExterno(Imovel i) throws MinhaException{
+		//criar obejeto endereco.
+		criar(i);
 	}
 }

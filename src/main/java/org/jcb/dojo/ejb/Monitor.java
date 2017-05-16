@@ -1,5 +1,6 @@
 package org.jcb.dojo.ejb;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
 import javax.persistence.EntityManager;
@@ -14,10 +15,19 @@ public class Monitor {
 	@PersistenceContext
 	EntityManager em;
 	
-	@Schedule(minute="*", hour="*")
+	private static int qtdImoveis;
+	
+	@Schedule(minute="10,20,30,40,50,00", hour="*")
 	public void monitoraImoveis(){
 		ImovelDao dao = new ImovelDao(em);
-		System.out.println(" QTD imoveis cadastrados: "+dao.listarTodos().size());
+		qtdImoveis = dao.listarTodos().size();
+		System.out.println(" QTD imoveis cadastrados: "+qtdImoveis);
 	}
 
+	public static int getQtdImoveis() {
+		return qtdImoveis;
+	}
+
+
+	
 }

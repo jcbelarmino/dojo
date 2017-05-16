@@ -13,13 +13,17 @@ import javax.servlet.http.HttpServlet;
 
 import org.jcb.dojo.dominio.Imovel;
 import org.jcb.dojo.ejb.ImovelEJB;
+import org.jcb.dojo.ejb.Monitor;
 
 @WebServlet("/imovel")
 public class ListarImoveis extends HttpServlet {
 
 	@EJB
 	ImovelEJB ejb;
-
+	
+	@EJB
+	Monitor monitor;
+	
 	@Override
 	public void service(ServletRequest request, ServletResponse response) throws ServletException, IOException {
 		StringBuilder errorMessage = new StringBuilder();
@@ -65,8 +69,8 @@ public class ListarImoveis extends HttpServlet {
 			
 			
 		//Inclui a lista de todos os imoveis
-		request.setAttribute("imoveis", ejb.recuperarTodos());
-
+		request.setAttribute("listaImoveis", ejb.recuperarTodos());
+		request.setAttribute("qtdImoveis", monitor.getQtdImoveis());
 		} catch (Exception e) {
 
 			Throwable t = e;
