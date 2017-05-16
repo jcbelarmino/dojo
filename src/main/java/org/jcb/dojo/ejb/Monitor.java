@@ -14,7 +14,7 @@ public class Monitor {
 	@PersistenceContext
 	EntityManager em;
 	
-	@Schedule(minute="*", hour="*")
+	//@Schedule(minute="*/10", hour="*")
 	public void monitoraImoveis(){
 		ImovelDao dao = new ImovelDao(em);
 		//System.out.println(" QTD imoveis cadastrados: "+dao.listarTodos().size());

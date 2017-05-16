@@ -11,8 +11,16 @@
 
     <h:form >
         <h:panelGrid columns="2" >
-            <h:outputLabel value="latitude" />
+        	<h:outputLabel value="Bairro" />
+            <h:inputText id="bairro" value="#{imovelController.endereco.bairro}" />
+        	<h:outputLabel value="Descricao" />
+            <h:inputText id="descricao" value="#{imovelController.imovel.descricao}" />
+            <h:outputLabel value="Latitude" />
             <h:inputText id="lat" value="#{imovelController.imovel.lat}" />
+            <h:outputLabel value="Longitude" />
+            <h:inputText id="longi" value="#{imovelController.imovel.longi}" />
+            <h:outputLabel value="Valor" />
+            <h:inputText id="valor" value="#{imovelController.imovel.valor}" />
             <h:commandButton value="Grava" action="#{imovelController.gravar()}" />
         </h:panelGrid>
     </h:form>
