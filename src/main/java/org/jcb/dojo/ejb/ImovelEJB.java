@@ -8,6 +8,7 @@ import javax.ejb.TransactionAttributeType;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 
 import org.jcb.dojo.dao.ImovelDao;
 import org.jcb.dojo.dominio.Imovel;
@@ -15,7 +16,7 @@ import org.jcb.dojo.dominio.Imovel;
 @Stateless
 public class ImovelEJB {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="dojoPUH2")
 	EntityManager em;
 	
 	public List<Imovel> recuperarTodos() {

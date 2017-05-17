@@ -4,7 +4,7 @@
     xsi:schemaLocation="
         http://xmlns.jcp.org/xml/ns/persistence
         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="dojoPU" transaction-type="JTA">
+    <!-- <persistence-unit name="dojoPU" transaction-type="JTA">
 		<class>org.jcb.dojo.dominio.Imovel</class>
 		<class>org.jcb.dojo.dominio.Contrato</class>
 		<class>org.jcb.dojo.dominio.Cliente</class>
@@ -14,16 +14,16 @@
 			<property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
 			<property name="hibernate.show_sql" value="true" />
 			<property name="hibernate.format_sql" value="true"/>
-			<!-- create, drop-and-create, none, drop. -->
-			<property name="javax.persistence.schema-generation.database.action"
+			 create, drop-and-create, none, drop. -->
+			<!--  <property name="javax.persistence.schema-generation.database.action"
 				value="none" />
 			<property name="hibernate.id.new_generator_mappings"
 				value="false" />
 				
 			</properties>
 
-	</persistence-unit>
-	<persistence-unit name="dojoPUh2" transaction-type="JTA">
+	</persistence-unit> -->
+	<persistence-unit name="dojoPUH2" transaction-type="JTA">
 		<class>org.jcb.dojo.dominio.Imovel</class>
 		<class>org.jcb.dojo.dominio.Contrato</class>
 		<class>org.jcb.dojo.dominio.Cliente</class>

@@ -7,6 +7,7 @@ import javax.ejb.TransactionAttribute;
 import javax.ejb.TransactionAttributeType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceUnit;
 
 import org.jcb.dojo.dao.ImovelDao;
 import org.jcb.dojo.dominio.Endereco;
@@ -15,7 +16,7 @@ import org.jcb.dojo.dominio.Imovel;
 @Stateless
 public class EnderecoEJB {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="dojoPUH2")
 	EntityManager em;
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
