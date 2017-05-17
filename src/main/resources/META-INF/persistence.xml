@@ -23,14 +23,20 @@
 			</properties>
 
 	</persistence-unit>
-	<persistence-unit name="dojoPUh2" transaction-type="RESOURCE_LOCAL">
+	<persistence-unit name="dojoPUh2" transaction-type="JTA">
+		<class>org.jcb.dojo.dominio.Imovel</class>
+		<class>org.jcb.dojo.dominio.Contrato</class>
+		<class>org.jcb.dojo.dominio.Cliente</class>
+		<class>org.jcb.dojo.dominio.Endereco</class>
+		<jta-data-source>java:jboss/datasources/dojoH2DS</jta-data-source>
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<properties>
 			<property name="hibernate.archive.autodetection" value="class" />
 			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
 			<property name="hibernate.show_sql" value="true"/>
 			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
-			
+			<property name="hibernate.id.new_generator_mappings"
+				value="false" />
 		</properties>
 	</persistence-unit>
 </persistence> 
