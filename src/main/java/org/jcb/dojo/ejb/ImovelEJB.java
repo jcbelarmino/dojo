@@ -15,7 +15,7 @@ import org.jcb.dojo.dominio.Imovel;
 @Stateless
 public class ImovelEJB {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="dojoPU")
 	EntityManager em;
 	
 	public List<Imovel> recuperarTodos() {

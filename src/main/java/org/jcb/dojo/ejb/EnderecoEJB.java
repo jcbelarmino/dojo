@@ -15,7 +15,7 @@ import org.jcb.dojo.dominio.Imovel;
 @Stateless
 public class EnderecoEJB {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="dojoPU")
 	EntityManager em;
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)

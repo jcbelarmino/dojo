@@ -11,7 +11,7 @@ import org.jcb.dojo.dao.ImovelDao;
 @Singleton
 public class Monitor {
 
-	@PersistenceContext
+	@PersistenceContext(unitName="dojoPU")
 	EntityManager em;
 	
 	//@Schedule(minute="*/10", hour="*")
