@@ -38,12 +38,17 @@ public class ImovelController implements Serializable {
 		return imovel;
 	}
 
-	public String gravar() throws MinhaException {
+	public void gravar() throws MinhaException {
 		ejbEndereco.criar(endereco);
 		imovel.setEndereco(endereco);
 		ejbImovel.criar(imovel);
-		FacesContext.getCurrentInstance().addMessage("imovel", new FacesMessage("Imovel gravado com sucesso!!"));
-		return "lista";
+		adicionarMensagem("Imovel gravado com sucesso!!");
+		imoveis = ejbImovel.recuperarTodos();
+		
+	}
+	
+	public void adicionarMensagem(String msg){
+		FacesContext.getCurrentInstance().addMessage(msg, new FacesMessage(msg));
 	}
 
 	public void setImovel(Imovel imovel) {

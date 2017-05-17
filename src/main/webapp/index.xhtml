@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" 
 xmlns:h="http://java.sun.com/jsf/html" 
 xmlns:f="http://java.sun.com/jsf/core"
+xmlns:p="http://primefaces.org/ui"
     xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -11,21 +12,68 @@ xmlns:f="http://java.sun.com/jsf/core"
 <h:body>
     <h1>Cadastro de imovel </h1>
     <h:form >
-        <h:panelGrid columns="2" >
+        <h:messages globalOnly="true" />
+        <h:panelGrid columns="3" >
         	<h:outputLabel value="Bairro" />
             <h:inputText id="bairro" value="#{imovelController.endereco.bairro}" />
+            <h:message for="bairro" style="color:red" />
+            <h:outputLabel value="Cidade" />
+            <h:inputText id="cidade" value="#{imovelController.endereco.cidade}" />
+            <h:message for="cidade" style="color:red" />
+            <h:outputLabel value="Complemento" />
+            <h:inputText id="complemento" value="#{imovelController.endereco.complemento}" />
+            <h:message for="complemento" style="color:red" />
+            <h:outputLabel value="Numero" />
+            <h:inputText id="numero" value="#{imovelController.endereco.numero}" />
+            <h:message for="numero" style="color:red" />
+            <h:outputLabel value="Rua" />
+            <h:inputText id="rua" value="#{imovelController.endereco.rua}" />
+            <h:message for="rua" style="color:red" />
+            <h:outputLabel value="Uf" />
+            <h:inputText id="uf" value="#{imovelController.endereco.uf}" />
+            <h:message for="uf" style="color:red" />
         	<h:outputLabel value="Descricao" />
             <h:inputText id="descricao" value="#{imovelController.imovel.descricao}" />
+            <h:message for="descricao" style="color:red" />
             <h:outputLabel value="Latitude" />
-            <h:inputText id="lat" value="#{imovelController.imovel.lat}" />
+            <h:inputText id="lat"  value="#{imovelController.imovel.lat}" maxlength="21" required="true" requiredMessage="Campo obrigatório"  />
+            <h:message for="lat" style="color:red" />
             <h:outputLabel value="Longitude" />
-            <h:inputText id="longi" value="#{imovelController.imovel.longi}" />
+            <h:inputText id="longi" value="#{imovelController.imovel.longi}" maxlength="21" required="true" requiredMessage="Campo obrigatório" />
+            <h:message for="longi" style="color:red" />
             <h:outputLabel value="Valor" />
             <h:inputText id="valor" value="#{imovelController.imovel.valor}" />
+            <h:message for="valor" style="color:red" />
             <h:commandButton value="Grava" action="#{imovelController.gravar()}" />
         </h:panelGrid>
          <h:message for="bairro" style="color:red" />
+         
+         
     </h:form>
+    
+    <h:form>
+    <p:dataTable var="imovel" value="#{imovelController.imoveis}" rows="10"
+                         paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                         rowsPerPageTemplate="5,10,15">
+        <p:column headerText="Descricao">
+            <h:outputText value="#{imovel.descricao}" />
+        </p:column>
+ 
+        <p:column headerText="Latitude">
+            <h:outputText value="#{imovel.lat}" />
+        </p:column>
+ 
+       <!--  <p:column headerText="Longitude">
+            <h:outputText value="#{imovel.longi}" />
+        </p:column> -->
+ 
+    </p:dataTable>
+	</h:form>
+    
+
+       
+       
         
 </h:body>
 
