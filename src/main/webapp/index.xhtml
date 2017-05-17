@@ -1,5 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+<html xmlns="http://www.w3.org/1999/xhtml" 
+xmlns:h="http://java.sun.com/jsf/html" 
+xmlns:f="http://java.sun.com/jsf/core"
     xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
@@ -8,7 +10,6 @@
 
 <h:body>
     <h1>Cadastro de imovel </h1>
-
     <h:form >
         <h:panelGrid columns="2" >
         	<h:outputLabel value="Bairro" />
@@ -23,6 +24,7 @@
             <h:inputText id="valor" value="#{imovelController.imovel.valor}" />
             <h:commandButton value="Grava" action="#{imovelController.gravar()}" />
         </h:panelGrid>
+         <h:message for="bairro" style="color:red" />
     </h:form>
         
 </h:body>
