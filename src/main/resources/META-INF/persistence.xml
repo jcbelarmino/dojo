@@ -23,4 +23,14 @@
 			</properties>
 
 	</persistence-unit>
+	<persistence-unit name="dojoPUh2" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.archive.autodetection" value="class" />
+			<property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect" />
+			<property name="hibernate.show_sql" value="true"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
+			
+		</properties>
+	</persistence-unit>
 </persistence> 
