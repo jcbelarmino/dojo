@@ -121,3 +121,14 @@ Voltar para o o projeto dojo
 
 O branch JPA-EJB-FINAL ajuda.
 >git checkout -b JPA-EJB-FINAL
+# Configurar Standalone H2
+``` 
+ <datasource jndi-name="java:jboss/datasources/dojoH2DS" pool-name="dojoDS" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:h2:./target/dojo;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>
+```
