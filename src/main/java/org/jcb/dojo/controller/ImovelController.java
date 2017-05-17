@@ -5,9 +5,12 @@ import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
@@ -16,11 +19,12 @@ import org.jcb.dojo.ejb.ImovelEJB;
 import org.jcb.dojo.ejb.MinhaException;
 
 @ManagedBean(name = "imovelController")
+@RequestScoped
 public class ImovelController implements Serializable {
 
-	@EJB
+	@Inject
 	private ImovelEJB ejbImovel;
-	@EJB
+	@Inject
 	private EnderecoEJB ejbEndereco;
 
 	private Imovel imovel;
