@@ -6,9 +6,12 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
@@ -19,11 +22,12 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
 @ManagedBean(name = "imovelController")
+@RequestScoped
 public class ImovelController implements Serializable {
 
-	@EJB
+	@Inject
 	private ImovelEJB ejbImovel;
-	@EJB
+	@Inject
 	private EnderecoEJB ejbEndereco;
 
 	private List<Imovel> imoveis;
