@@ -23,6 +23,11 @@ public class ImovelEJB {
 		return dao.recuperarTodosFetch();
 	}
 	
+	public List<Imovel> recuperarPaginado(int primeiroRegistro, int quantidade) {
+		ImovelDao dao = new ImovelDao(em);
+		return dao.recuperarPaginado(primeiroRegistro, quantidade);
+	}
+	
 	@TransactionAttribute(TransactionAttributeType.REQUIRED)
 	public void criar(Imovel imovel) throws MinhaException {
 		em.persist(imovel);

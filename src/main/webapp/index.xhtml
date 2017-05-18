@@ -10,6 +10,7 @@ xmlns:p="http://primefaces.org/ui"
 </h:head>
 
 <h:body>
+
     <h1>Cadastro de imovel </h1>
     <h:form >
         <h:messages globalOnly="true" />
@@ -52,10 +53,10 @@ xmlns:p="http://primefaces.org/ui"
     </h:form>
     
     <h:form>
-    <p:dataTable var="imovel" value="#{imovelController.imoveis}" rows="10"
+    <p:dataTable var="imovel" value="#{imovelController.imoveisPaginados}" rows="10"
                          paginator="true"
                          paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15">
+                         rowsPerPageTemplate="5,10,15" lazy="true">
         <p:column headerText="Descricao">
             <h:outputText value="#{imovel.descricao}" />
         </p:column>

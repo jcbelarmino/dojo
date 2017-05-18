@@ -2,6 +2,7 @@ package org.jcb.dojo.controller;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -14,6 +15,8 @@ import org.jcb.dojo.dominio.Imovel;
 import org.jcb.dojo.ejb.EnderecoEJB;
 import org.jcb.dojo.ejb.ImovelEJB;
 import org.jcb.dojo.ejb.MinhaException;
+import org.primefaces.model.LazyDataModel;
+import org.primefaces.model.SortOrder;
 
 @ManagedBean(name = "imovelController")
 public class ImovelController implements Serializable {
@@ -23,6 +26,9 @@ public class ImovelController implements Serializable {
 	@EJB
 	private EnderecoEJB ejbEndereco;
 
+	private List<Imovel> imoveis;
+
+	private LazyDataModel<Imovel> imoveisPaginados;
 	private Imovel imovel;
 	private Endereco endereco;
 
@@ -31,7 +37,19 @@ public class ImovelController implements Serializable {
 		// FacesContext f = FacesContext.getCurrentInstance();
 		endereco = new Endereco();
 		imovel = new Imovel();
-		imoveis = ejbImovel.recuperarTodos();
+		//imoveis = ejbImovel.recuperarTodos();
+		imoveisPaginados = new LazyDataModel<Imovel>() {
+			@Override
+			public List<Imovel> load(int first, int pageSize, String sortField, SortOrder sortOrder,
+					Map<String, Object> filters) {
+
+				setRowCount(ejbImovel.recuperarTodos().size());
+				return ejbImovel.recuperarPaginado(first, pageSize);
+				// return super.load(first, pageSize, sortField, sortOrder,
+				// filters);
+			}
+		};
+
 	}
 
 	public Imovel getImovel() {
@@ -43,11 +61,21 @@ public class ImovelController implements Serializable {
 		imovel.setEndereco(endereco);
 		ejbImovel.criar(imovel);
 		adicionarMensagem("Imovel gravado com sucesso!!");
-		imoveis = ejbImovel.recuperarTodos();
-		
+		imoveisPaginados = new LazyDataModel<Imovel>() {
+			@Override
+			public List<Imovel> load(int first, int pageSize, String sortField, SortOrder sortOrder,
+					Map<String, Object> filters) {
+
+				setRowCount(ejbImovel.recuperarTodos().size());
+				return ejbImovel.recuperarPaginado(first, pageSize);
+				// return super.load(first, pageSize, sortField, sortOrder,
+				// filters);
+			}
+		};
+		//imoveis = ejbImovel.recuperarTodos();
 	}
-	
-	public void adicionarMensagem(String msg){
+
+	public void adicionarMensagem(String msg) {
 		FacesContext.getCurrentInstance().addMessage(msg, new FacesMessage(msg));
 	}
 
@@ -71,6 +99,12 @@ public class ImovelController implements Serializable {
 		this.imoveis = imoveis;
 	}
 
-	private List<Imovel> imoveis;
+	public LazyDataModel<Imovel> getImoveisPaginados() {
+		return imoveisPaginados;
+	}
+
+	public void setImoveisPaginados(LazyDataModel<Imovel> imoveisPaginados) {
+		this.imoveisPaginados = imoveisPaginados;
+	}
 
 }

@@ -6,7 +6,7 @@
   </context-param>
   <context-param>
     <param-name>primefaces.THEME</param-name>
-    <param-value>omega</param-value>
+    <param-value>dark-hive</param-value>
   </context-param>
   <welcome-file-list>
     <welcome-file>index.xhtml</welcome-file>
