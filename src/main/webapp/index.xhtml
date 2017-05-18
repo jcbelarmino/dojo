@@ -36,9 +36,9 @@ xmlns:p="http://primefaces.org/ui"
         	<h:outputLabel value="Descricao" />
             <h:inputText id="descricao" value="#{imovelController.imovel.descricao}" />
             <h:message for="descricao" style="color:red" />
-            <h:outputLabel value="Latitude" />
-            <h:inputText id="lat"  value="#{imovelController.imovel.lat}" maxlength="21" required="true" requiredMessage="Campo obrigatório"  />
-            <h:message for="lat" style="color:red" />
+            <h:outputLabel value="Latitude" for="lat"/>
+            <p:inputMask id="lat" value="#{imovelController.imovel.lat}" mask="99.999999999" required="true" label="latitude" requiredMessage="Campo Obrigatótio"/>
+            <p:message for="lat" /> 
             <h:outputLabel value="Longitude" />
             <h:inputText id="longi" value="#{imovelController.imovel.longi}" maxlength="21" required="true" requiredMessage="Campo obrigatório" />
             <h:message for="longi" style="color:red" />
