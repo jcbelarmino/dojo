@@ -6,12 +6,10 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 
 import org.jcb.dojo.dominio.Endereco;
 import org.jcb.dojo.dominio.Imovel;
@@ -22,12 +20,12 @@ import org.primefaces.model.LazyDataModel;
 import org.primefaces.model.SortOrder;
 
 @ManagedBean(name = "imovelController")
-@RequestScoped
+@ViewScoped
 public class ImovelController implements Serializable {
 
-	@Inject
+	@EJB
 	private ImovelEJB ejbImovel;
-	@Inject
+	@EJB
 	private EnderecoEJB ejbEndereco;
 
 	private List<Imovel> imoveis;
@@ -38,19 +36,17 @@ public class ImovelController implements Serializable {
 
 	@PostConstruct
 	private void init() {
-		// FacesContext f = FacesContext.getCurrentInstance();
+		//FacesContext f = FacesContext.getCurrentInstance();
 		endereco = new Endereco();
 		imovel = new Imovel();
-		//imoveis = ejbImovel.recuperarTodos();
 		imoveisPaginados = new LazyDataModel<Imovel>() {
 			@Override
 			public List<Imovel> load(int first, int pageSize, String sortField, SortOrder sortOrder,
 					Map<String, Object> filters) {
 
-				setRowCount(ejbImovel.recuperarTodos().size());
+				setRowCount(ejbImovel.conta().intValue());
 				return ejbImovel.recuperarPaginado(first, pageSize);
-				// return super.load(first, pageSize, sortField, sortOrder,
-				// filters);
+				
 			}
 		};
 
@@ -65,18 +61,6 @@ public class ImovelController implements Serializable {
 		imovel.setEndereco(endereco);
 		ejbImovel.criar(imovel);
 		adicionarMensagem("Imovel gravado com sucesso!!");
-		imoveisPaginados = new LazyDataModel<Imovel>() {
-			@Override
-			public List<Imovel> load(int first, int pageSize, String sortField, SortOrder sortOrder,
-					Map<String, Object> filters) {
-
-				setRowCount(ejbImovel.recuperarTodos().size());
-				return ejbImovel.recuperarPaginado(first, pageSize);
-				// return super.load(first, pageSize, sortField, sortOrder,
-				// filters);
-			}
-		};
-		//imoveis = ejbImovel.recuperarTodos();
 	}
 
 	public void adicionarMensagem(String msg) {

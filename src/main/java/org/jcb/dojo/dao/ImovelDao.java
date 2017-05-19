@@ -22,4 +22,8 @@ public class ImovelDao extends DAOEntityManagerGenerico<Imovel, Long> {
 		return getEm().createNamedQuery("Imovel.recuperarTodosFetch", Imovel.class).setFirstResult(primeiroRegistro)
 				.setMaxResults(primeiroRegistro + quantidade).getResultList();
 	}
+	
+	public Long conta(){
+		return getEm().createQuery("select count(i) from Imovel i", Long.class).getSingleResult();
+	}
 }

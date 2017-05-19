@@ -23,6 +23,11 @@ public class ImovelEJB {
 		return dao.recuperarTodosFetch();
 	}
 	
+	public Long conta(){
+		ImovelDao dao = new ImovelDao(em);
+		return dao.conta();
+	}
+	
 	public List<Imovel> recuperarPaginado(int primeiroRegistro, int quantidade) {
 		ImovelDao dao = new ImovelDao(em);
 		return dao.recuperarPaginado(primeiroRegistro, quantidade);

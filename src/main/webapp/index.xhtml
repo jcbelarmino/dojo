@@ -12,7 +12,7 @@ xmlns:p="http://primefaces.org/ui"
 <h:body>
 
     <h1>Cadastro de imovel </h1>
-    <h:form >
+    <h:form id="formImovel">
         <h:messages globalOnly="true" />
         <h:panelGrid columns="3" >
         	<h:outputLabel value="Bairro" />
@@ -40,7 +40,7 @@ xmlns:p="http://primefaces.org/ui"
             <p:inputMask id="lat" value="#{imovelController.imovel.lat}" mask="99.999999999" required="true" label="latitude" requiredMessage="Campo Obrigatótio"/>
             <p:message for="lat" /> 
             <h:outputLabel value="Longitude" />
-            <h:inputText id="longi" value="#{imovelController.imovel.longi}" maxlength="21" required="true" requiredMessage="Campo obrigatório" />
+            <h:inputText id="longi" value="#{imovelController.imovel.longi}" maxlength="21" required="true" requiredMessage="Campo obrigatório"  />
             <h:message for="longi" style="color:red" />
             <h:outputLabel value="Valor" />
             <h:inputText id="valor" value="#{imovelController.imovel.valor}" />
