@@ -1,81 +1,153 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:h="http://java.sun.com/jsf/html" 
-xmlns:f="http://java.sun.com/jsf/core"
-xmlns:p="http://primefaces.org/ui"
-    xmlns:ui="http://java.sun.com/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
 <h:head>
-    <title>Cadastro de Imovel </title>
+	<title>Cadastro de Imovel</title>
+	<script async='async' defer='defer'
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJljQ34zL7xVj2-Vbni2fA7ta4UyMYvUk&amp;callback=initMap"
+		type="text/javascript"></script>
+
 </h:head>
-
 <h:body>
+	<p:growl id="messages" showDetail="true" />
 
-    <h1>Cadastro de imovel </h1>
-    <h:form id="formImovel">
-        <h:messages globalOnly="true" />
-        <h:panelGrid columns="3" >
-        	<h:outputLabel value="Bairro" />
-            <h:inputText id="bairro" value="#{imovelController.endereco.bairro}" />
-            <h:message for="bairro" style="color:red" />
-            <h:outputLabel value="Cidade" />
-            <h:inputText id="cidade" value="#{imovelController.endereco.cidade}" />
-            <h:message for="cidade" style="color:red" />
-            <h:outputLabel value="Complemento" />
-            <h:inputText id="complemento" value="#{imovelController.endereco.complemento}" />
-            <h:message for="complemento" style="color:red" />
-            <h:outputLabel value="Numero" />
-            <h:inputText id="numero" value="#{imovelController.endereco.numero}" />
-            <h:message for="numero" style="color:red" />
-            <h:outputLabel value="Rua" />
-            <h:inputText id="rua" value="#{imovelController.endereco.rua}" />
-            <h:message for="rua" style="color:red" />
-            <h:outputLabel value="Uf" />
-            <h:inputText id="uf" value="#{imovelController.endereco.uf}" />
-            <h:message for="uf" style="color:red" />
-        	<h:outputLabel value="Descricao" />
-            <h:inputText id="descricao" value="#{imovelController.imovel.descricao}" />
-            <h:message for="descricao" style="color:red" />
-            <h:outputLabel value="Latitude" for="lat"/>
-            <p:inputMask id="lat" value="#{imovelController.imovel.lat}" mask="99.999999999" required="true" label="latitude" requiredMessage="Campo Obrigatótio"/>
-            <p:message for="lat" /> 
-            <h:outputLabel value="Longitude" />
-            <h:inputText id="longi" value="#{imovelController.imovel.longi}" maxlength="21" required="true" requiredMessage="Campo obrigatório"  />
-            <h:message for="longi" style="color:red" />
-            <h:outputLabel value="Valor" />
-            <h:inputText id="valor" value="#{imovelController.imovel.valor}" />
-            <h:message for="valor" style="color:red" />
-            <h:commandButton value="Grava" action="#{imovelController.gravar()}" />
-        </h:panelGrid>
-         <h:message for="bairro" style="color:red" />
-         
-         
-    </h:form>
-    
-    <h:form>
-    <p:dataTable var="imovel" value="#{imovelController.imoveisPaginados}" rows="10"
-                         paginator="true"
-                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-                         rowsPerPageTemplate="5,10,15" lazy="true">
-        <p:column headerText="Descricao">
-            <h:outputText value="#{imovel.descricao}" />
-        </p:column>
+	<p:fieldset legend="Cadastro de Imoveis">
+		<p:row>
+			<p:panelGrid style="border-width:2px;">
+				<h:form id="formImovel">
+					<h:messages globalOnly="true" />
+					<h:panelGrid columns="3">
+						<h:outputLabel value="Bairro" />
+						<p:inputText id="bairro"
+							value="#{imovelController.endereco.bairro}" />
+						<h:message for="bairro" style="color:red" />
+						<h:outputLabel value="Cidade" />
+						<p:inputText id="cidade"
+							value="#{imovelController.endereco.cidade}" />
+						<h:message for="cidade" style="color:red" />
+						<h:outputLabel value="Complemento" />
+						<p:inputText id="complemento"
+							value="#{imovelController.endereco.complemento}" />
+						<h:message for="complemento" style="color:red" />
+						<h:outputLabel value="Numero" />
+						<p:inputText id="numero"
+							value="#{imovelController.endereco.numero}" />
+						<h:message for="numero" style="color:red" />
+						<h:outputLabel value="Rua" />
+						<p:inputText id="rua" value="#{imovelController.endereco.rua}" />
+						<h:message for="rua" style="color:red" />
+						<h:outputLabel value="Uf" />
+						<p:inputText id="uf" value="#{imovelController.endereco.uf}" />
+						<h:message for="uf" style="color:red" />
+						<h:outputLabel value="Descricao" />
+						<p:inputText id="descricao"
+							value="#{imovelController.imovel.descricao}" />
+						<h:message for="descricao" style="color:red" />
+						<h:outputLabel value="Latitude" for="lat" />
+						<p:inputMask id="lat" value="#{imovelController.imovel.lat}"
+							mask="99.999999999" required="true" label="latitude"
+							requiredMessage="Campo Obrigatótio" />
+						<p:message for="lat" />
+						<h:outputLabel value="Longitude" />
+						<p:inputText id="longi" value="#{imovelController.imovel.longi}"
+							maxlength="21" required="true"
+							requiredMessage="Campo obrigatório" />
+						<h:message for="longi" style="color:red" />
+						<h:outputLabel value="Valor" />
+						<p:inputText id="valor" value="#{imovelController.imovel.valor}" />
+						<h:message for="valor" style="color:red" />
+						<p:commandButton value="Gravar" icon="ui-icon-check"
+							action="#{imovelController.gravar()}" />
+					</h:panelGrid>
+					<h:message for="bairro" style="color:red" />
+
+
+				</h:form>
+			</p:panelGrid>
+			<p:gmap center="-15.7630554,-47.8719061" zoom="15" type="HYBRID"
+				model="#{imovelController.emptyModel}"
+				onPointClick="handlePointClick(event);" widgetVar="map"
+				style="width:100%;height:400px" />
+			<script type="text/javascript">
+    var currentMarker = null;
  
-        <p:column headerText="Latitude">
-            <h:outputText value="#{imovel.lat}" />
-        </p:column>
+    function handlePointClick(event) {
+        if(currentMarker === null) {
+            document.getElementById('formImovel:lat').value = event.latLng.lat();
+            document.getElementById('formImovel:longi').value = event.latLng.lng();
  
-       <!--  <p:column headerText="Longitude">
+            currentMarker = new google.maps.Marker({
+                position:new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+            });
+ 
+            PF('map').addOverlay(currentMarker);
+ 
+            PF('dlg').show();
+        }   
+    }
+ 
+    function markerAddComplete() {
+        var title = document.getElementById('title');
+        currentMarker.setTitle(title.value);
+        title.value = "";
+ 
+        currentMarker = null;
+        PF('dlg').hide();
+    }
+ 
+    function cancel() {
+        PF('dlg').hide();
+        currentMarker.setMap(null);
+        currentMarker = null;
+ 
+        return false;
+    }
+</script>
+		</p:row>
+	</p:fieldset>
+	<h:form>
+		<p:dataTable var="imovel" value="#{imovelController.imoveisPaginados}"
+			rows="10" paginator="true" paginatorPosition="top"
+			paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			rowsPerPageTemplate="5,10" lazy="true">
+			<p:column headerText="Descricao">
+				<h:outputText value="#{imovel.descricao}" />
+			</p:column>
+
+			<p:column headerText="Latitude">
+				<h:outputText value="#{imovel.lat}" />
+			</p:column>
+
+			<p:column headerText="Ver">
+				<center>
+					<p:commandButton 
+						icon="ui-icon-search" 
+						action="#{imovelController.verDetalheImovel(imovel)}" 
+						onsuccess="PF('detalhes').show()" 
+						update="@(.dialogDetalhes)"
+						/>
+				</center>
+			</p:column>
+
+			<!--  <p:column headerText="Longitude">
             <h:outputText value="#{imovel.longi}" />
         </p:column> -->
- 
-    </p:dataTable>
-	</h:form>
-    
 
-       
-       
-        
+		</p:dataTable>
+	</h:form>
+
+	<h:form>
+		<p:dialog widgetVar="detalhes" styleClass="dialogDetalhes">
+		<p:outputLabel value="#{imovelController.imovelDetalhe.descricao}"></p:outputLabel>
+		</p:dialog>
+	</h:form>
+
+
+
 </h:body>
 
 </html>
